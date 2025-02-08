@@ -3,7 +3,7 @@ const { createClient } = supabase;
 // Create a single supabase client for interacting with your database
 const _supabase = createClient(
  "enter your web url",
-"enter your key
+"enter your key 
   "
 );
 
