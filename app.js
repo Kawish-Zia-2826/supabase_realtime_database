@@ -2,8 +2,8 @@ const { createClient } = supabase;
 
 // Create a single supabase client for interacting with your database
 const _supabase = createClient(
-  "https://ymwhxcrgumtzgadvfakv.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inltd2h4Y3JndW10emdhZHZmYWt2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY0OTAxNDIsImV4cCI6MjA1MjA2NjE0Mn0.O0-DjhIFJ1OO76GapA81NSoKdm83L5vYasm5Jj-UiK0"
+  "your web name",
+ "your api key"
 );
 
 $(document).ready(function () {
@@ -112,7 +112,7 @@ try {
     if (error) {
       alert("Some error occurred!");
     } else {
-      renderMessages(data); // ✅ Yahan `fetchMessages()` ke andar `renderMessages()` call karenge
+      renderMessages(data); 
     }
   }
 
@@ -120,7 +120,7 @@ try {
   //read data 
   function renderMessages(data) {
     try {
-    // ✅ Yeh alag function hai jo data ko table me dikhayega
+    
     $("#td tbody").empty();
 
     $.each(data, function (key, val) {
@@ -181,7 +181,7 @@ try {
         draggable: true
       });
       
-      $("#exampleInputEmail1").val(""); // ✅ Input fields clear karne ke liye
+      $("#exampleInputEmail1").val(""); 
       $("#exampleInputPassword1").val("");
     }
      }
@@ -199,7 +199,7 @@ try {
       { event: "INSERT", schema: "public", table: "REAL_TIME_CRUD" },
       (payload) => {
         console.log("New message received:", payload.new);
-        fetchMessages(); // ✅ Real-time update ke liye sahi function call
+        fetchMessages(); 
       }
     )
     .on(
@@ -207,7 +207,7 @@ try {
       { event: "UPDATE", schema: "public", table: "REAL_TIME_CRUD" },
       (payload) => {
         console.log("New message received:", payload.new);
-        fetchMessages(); // ✅ Real-time update ke liye sahi function call
+        fetchMessages(); 
       }
     )
     .on(
@@ -215,7 +215,7 @@ try {
       { event: "DELETE", schema: "public", table: "REAL_TIME_CRUD" },
       (payload) => {
         console.log("New message received:", payload.new);
-        fetchMessages(); // ✅ Real-time update ke liye sahi function call
+        fetchMessages(); 
       }
     )
   
@@ -224,50 +224,4 @@ try {
   fetchMessages(); // ✅ Page load hone par data fetch karega
 });
 
-// Step 3: Image upload logic
-// const { createClient } = supabase;
 
-// // Supabase client initialize karo
-// const _supabase = createClient(
-//   "https://ymwhxcrgumtzgadvfakv.supabase.co",
-//   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inltd2h4Y3JndW10emdhZHZmYWt2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY0OTAxNDIsImV4cCI6MjA1MjA2NjE0Mn0.O0-DjhIFJ1OO76GapA81NSoKdm83L5vYasm5Jj-UiK0"
-// );
-// console.log(_supabase);
-
-// // (async function () {
-// //   // const { data, error } = await _supabase
-// //   // .storage
-// //   // .createBucket('avatars', {
-// //   //   public: false,
-// //   //   allowedMimeTypes: ['image/png'],
-// //   //   fileSizeLimit: 1024
-// //   // })
-
-// //   // const { data, error } = await _supabase.storage.getBucket("avatars");
-// // })();
-
-// $("#uploadButton").click(async function () {
-//   // const file = $("#imageUpload")[0].files[0]; // Select file from input
-//   console.log($("#imageUpload"));
-
-//   // if (file) {
-//   //   // Supabase Storage ke "images" bucket mein image upload karna
-//   //   const { data, error } = await _supabase.storage
-//   //     .from("images") // Bucket name
-//   //     .upload(`public/${file.name}`, file); // Upload path (public folder ke andar)
-
-//   //   if (error) {
-//   //     console.error("Error uploading image:", error.message);
-//   //   } else {
-//   //     console.log("Image uploaded:", data);
-//   //     // Image ka URL fetch karo
-//   //     const url = _supabase.storage
-//   //       .from("images")
-//   //       .getPublicUrl(`public/${file.name}`).publicURL;
-//   //     console.log("Image URL:", url);
-
-//   //     // Tum URL ko kisi image tag mein set kar sakte ho
-//   //     $("#uploadedImage").attr("src", url); // Show the uploaded image
-//   //   }
-//   // }
-// });
